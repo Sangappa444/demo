@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GitHub Trending Repositories</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -36,6 +38,43 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
       padding: 32px 24px 24px 24px;
     }
+    @media (max-width: 600px) {
+  .container,
+  .dashboard {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 4px;
+    box-sizing: border-box;
+  }
+  .filters {
+    flex-direction: column;
+    gap: 8px;
+  }
+  #repo-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+  canvas, #lang-stats, #issue-pr-chart, #growthChart {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+canvas {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+ul#repo-list {
+  width: 100%;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
     h1 {
       text-align: center;
       color: #24292f;
@@ -80,34 +119,33 @@
       margin: 0;
     }
     #repo-list li {
-      background: #f6f8fa;
-      margin-bottom: 14px;
-      padding: 18px 16px;
+      background: #fff;
+      margin-bottom: 18px;
+      padding: 18px 20px;
       border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: box-shadow 0.2s;
-    }
-    #repo-list li:hover {
-      box-shadow: 0 4px 16px rgba(3,102,214,0.08);
-      background: #eaf5ff;
-    }
-    .repo-info {
+      box-shadow: 0 1px 4px rgba(60,64,67,0.08), 0 1.5px 6px rgba(60,64,67,0.08);
+      border: 1px solid #ececec;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 8px;
+      transition: box-shadow 0.18s, border 0.18s;
+    }
+    #repo-list li:hover {
+      box-shadow: 0 4px 16px rgba(60,64,67,0.13);
+      border: 1px solid #d2e3fc;
+      background: #fafbfc;
     }
     .repo-title {
-      font-weight: 600;
-      color: #0366d6;
       font-size: 1.1rem;
+      font-weight: 500;
+      color: #202124;
       margin-bottom: 2px;
+      letter-spacing: 0.01em;
     }
     .repo-meta {
-      color: #586069;
+      color: #5f6368;
       font-size: 0.97rem;
+      margin-bottom: 4px;
     }
     .star-btn {
       background: #ffd33d;
@@ -139,6 +177,7 @@
       }
     }
   </style>
+  
 </head>
 <body>
   
@@ -1013,5 +1052,5 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="./index.js"></script>
-
+</body>
 </html>

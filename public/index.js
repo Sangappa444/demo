@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (language) params.push(`language=${encodeURIComponent(language)}`);
     if (since) params.push(`since=${encodeURIComponent(since)}`);
     if (params.length) url += '?' + params.join('&');
-    const res = await fetch(url);
+    const res = await fetch('/repos');
     repos = await res.json();
 
     document.getElementById('repo-loader').style.display = 'none';
@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const isBookmarked = bookmarks.some(b => b.repo === repo.repo && b.author === repo.author);
       const li = document.createElement('li');
       li.innerHTML = `
-        <span>${repo.author} / ${repo.repo}</span>
+        <span>Repo Author:${repo.author} &nbsp Repo: ${repo.repo}</span>
+        <span> <i class="fa-solid fa-star" style="color: #FFD43B;"></i>stars : ${repo.stars}</span>
         <span class="repo-actions" style="display:inline-flex;gap:8px;margin-left:12px;">
           <button class="preview-btn">Preview</button>
           <button 
@@ -141,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 10);
 
     try {
-      const res = await fetch(`http://localhost:3000/readme?owner=${owner}&repo=${repo}`);
+      const res = await fetch(`readme?owner=${owner}&repo=${repo}`);
       const data = await res.json();
       if (data.readme) {
         let truncated = data.readme.length > 5000;
