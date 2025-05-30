@@ -29,7 +29,7 @@ cron.schedule('0 0 * * *', () => {
   console.log('🔄 Running daily GitHub scrape...');
   scrapeTrending();
 });
-app.get("/trendingrepos", (req, res) => {
+app.get("/", (req, res) => {
   res.render('app.ejs');
 })
 // API endpoint to get data
