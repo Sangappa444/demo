@@ -1066,5 +1066,20 @@ ul#repo-list {
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="./index.js"></script>
+<!-- Add inside <head> -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GitHub Trending Repositories",
+  "url": "https://git-trending-repo.onrender.com/",
+  "description": "Discover the latest trending GitHub repositories, view analytics, and explore top open-source projects by language, stars, and contributors.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://git-trending-repo.onrender.com/?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 </body>
 </html>
