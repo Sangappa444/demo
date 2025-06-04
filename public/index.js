@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Please provide a GitHub API token.');
       return;
     }
-    const res = await fetch('http://localhost:3000/star', {
+    const res = await fetch('/star', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ owner, repo, token })
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 10);
 
     try {
-      const res = await fetch(`readme?owner=${owner}&repo=${repo}`);
+      const res = await fetch(`/readme?owner=${owner}&repo=${repo}`);
       const data = await res.json();
       if (data.readme) {
         let truncated = data.readme.length > 5000;
