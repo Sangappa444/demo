@@ -305,6 +305,21 @@ document.addEventListener('DOMContentLoaded', () => {
           title: {
             display: true,
             text: chartType === 'bar' ? 'Top Languages (Bar + Stars Line)' : 'Top Languages Share'
+          },
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: 'xy',
+            },
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'xy',
+            }
           }
         },
         scales: chartType === 'bar' ? {
@@ -584,3 +599,9 @@ function showStarSuccess(repoName) {
     modal.style.display = 'none';
   }, 2000);
 }
+
+// Plotly.newPlot('chartDiv', data, layout, {
+//   displayModeBar: true,
+//   editable: false, // disables editing
+//   scrollZoom: true // enables zoom with scroll
+// });
